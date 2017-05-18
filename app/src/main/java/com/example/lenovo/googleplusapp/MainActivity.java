@@ -22,7 +22,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FrameLayout frameLayout;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
-    Fragment fragment=null;
+
+    Fragment fragment1=null;
+    Fragment fragment2=null;
+    Fragment fragment3=null;
+    Fragment fragment4=null;
     int conteinerId=0;
     String tag=null;
 
@@ -48,13 +52,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          fragmentTransaction=fragmentManager.beginTransaction();
 
         conteinerId=R.id.act_main_conteiner;
-        fragment=Fragment1.newInstance("fragment1 text");
+        fragment1=Fragment1.newInstance("fragment1 text");
         tag=Fragment1.TAG;
         frameLayout.setBackgroundColor(Color.BLUE);
 
 
         fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.add(conteinerId, fragment, tag);
+        fragmentTransaction.add(conteinerId, fragment1, tag);
         fragmentTransaction.commit();
 
 
@@ -67,77 +71,154 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
             case R.id.act_main_navig_btn_1:{
                 tag=Fragment1.TAG;
-                if(getFragmentManager().findFragmentByTag(tag)!=null){
+                if(fragment1!=null){
                     Log.d("testt", "show hided 1 fragment ");
-                    fragmentTransaction.hide(fragment);
-                    fragment=getSupportFragmentManager().findFragmentByTag(tag);
-                    fragmentTransaction.show(fragment);
+                    if (fragment2!=null){
+                    fragmentTransaction.hide(fragment2);
+                    }
+                    if (fragment3!=null){
+                        fragmentTransaction.hide(fragment3);
+
+                    }
+                    if (fragment4!=null){
+                        fragmentTransaction.hide(fragment4);
+                    }
+
+                  //  fragment1=getSupportFragmentManager().findFragmentByTag(tag);
+                    fragmentTransaction.show(fragment1);
                     fragmentTransaction.commit();
                 }else {
                     Log.d("testt", "create 1 fragment ");
+                    if (fragment2!=null){
+                        fragmentTransaction.hide(fragment2);
+                    }
+                    if (fragment3!=null){
+                        fragmentTransaction.hide(fragment3);
 
-                    fragmentTransaction.hide(fragment);
-                    fragment = Fragment1.newInstance("fragment1 text");
+                    }
+                    if (fragment4!=null){
+                        fragmentTransaction.hide(fragment4);
+                    }
+//                    fragmentTransaction.hide(fragment);
+                    fragment1 = Fragment1.newInstance("fragment1 text");
                     frameLayout.setBackgroundColor(Color.BLUE);
                     fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.add(conteinerId, fragment, tag);
+                    fragmentTransaction.add(conteinerId, fragment1, tag);
                     fragmentTransaction.commit();
                 }break;
             }
             case R.id.act_main_navig_btn_2:{
                 tag=Fragment2.TAG;
 
-                if(getFragmentManager().findFragmentByTag(tag)!=null){
+                if(fragment2!=null){
                     Log.d("testt", "show hided 2 fragment ");
 
-                    fragmentTransaction.hide(fragment);
-                    fragment=getSupportFragmentManager().findFragmentByTag(tag);
-                    fragmentTransaction.show(fragment);
+                    if (fragment1!=null){
+                        fragmentTransaction.hide(fragment1);
+                    }
+                    if (fragment3!=null){
+                        fragmentTransaction.hide(fragment3);
+
+                    }
+                    if (fragment4!=null){
+                        fragmentTransaction.hide(fragment4);
+                    }
+//                    fragmentTransaction.hide(fragment);
+//                    fragment2=getSupportFragmentManager().findFragmentByTag(tag);
+                    fragmentTransaction.show(fragment2);
                     fragmentTransaction.commit();
                 }else {
-                    Log.d("testt", "create 1 fragment ");
+                    Log.d("testt", "create 2 fragment ");
+                    if (fragment1!=null){
+                        fragmentTransaction.hide(fragment1);
+                    }
+                    if (fragment3!=null){
+                        fragmentTransaction.hide(fragment3);
 
-                    fragmentTransaction.hide(fragment);
-                   fragment = Fragment2.newInstance();
+                    }
+                    if (fragment4!=null){
+                        fragmentTransaction.hide(fragment4);
+                    }
+                   fragment2 = Fragment2.newInstance();
                     frameLayout.setBackgroundColor(Color.RED);
                     fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.add(conteinerId, fragment, tag);
+                    fragmentTransaction.add(conteinerId, fragment2, tag);
                     fragmentTransaction.commit();
                 }break;
             }
             case R.id.act_main_navig_btn_3:{
                 tag=Fragment3.TAG;
-                if(getFragmentManager().findFragmentByTag(tag)!=null){
+                if(fragment3!=null){
                     Log.d("testt", "show hided 3 fragment ");
-                    fragmentTransaction.hide(fragment);
-                    fragment=getSupportFragmentManager().findFragmentByTag(tag);
-                    fragmentTransaction.show(fragment);
+                    if (fragment1!=null){
+                        fragmentTransaction.hide(fragment1);
+                    }
+                    if (fragment2!=null){
+                        fragmentTransaction.hide(fragment2);
+
+                    }
+                    if (fragment4!=null){
+                        fragmentTransaction.hide(fragment4);
+                    }
+//                    fragmentTransaction.hide(fragment);
+//                    fragment3=getSupportFragmentManager().findFragmentByTag(tag);
+                    fragmentTransaction.show(fragment3);
                     fragmentTransaction.commit();
                 }else {
                     Log.d("testt", "create 3 fragment ");
-                    fragmentTransaction.hide(fragment);
-                    fragment = Fragment3.newInstance("fragment3 text");
+                    if (fragment1!=null){
+                        fragmentTransaction.hide(fragment1);
+                    }
+                    if (fragment2!=null){
+                        fragmentTransaction.hide(fragment2);
+
+                    }
+                    if (fragment4!=null){
+                        fragmentTransaction.hide(fragment4);
+                    }
+//                    fragmentTransaction.hide(fragment);
+                    fragment3 = Fragment3.newInstance("fragment3 text");
                     frameLayout.setBackgroundColor(Color.GREEN);
                     fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.add(conteinerId, fragment, tag);
+                    fragmentTransaction.add(conteinerId, fragment3, tag);
                     fragmentTransaction.commit();
                 }break;
             }
             case R.id.act_main_navig_btn_4:{
                 tag=Fragment4.TAG;
-                if(getSupportFragmentManager().findFragmentByTag(tag)!=null){
+                if(fragment4!=null){
                     Log.d("testt", "show hided 4 fragment ");
-                    fragmentTransaction.hide(fragment);
-                    fragment=getSupportFragmentManager().findFragmentByTag(tag);
-                    fragmentTransaction.show(fragment);
+                    if (fragment1!=null){
+                        fragmentTransaction.hide(fragment1);
+                    }
+                    if (fragment3!=null){
+                        fragmentTransaction.hide(fragment3);
+
+                    }
+                    if (fragment2!=null){
+                        fragmentTransaction.hide(fragment2);
+                    }
+//                    fragmentTransaction.hide(fragment);
+//                    fragment=getSupportFragmentManager().findFragmentByTag(tag);
+                    fragmentTransaction.show(fragment4);
                     fragmentTransaction.commit();
                 }else {
                     Log.d("testt", "create 4 fragment ");
-                    fragmentTransaction.hide(fragment);
-                    fragment = Fragment4.newInstance("fragment4 text");
-                    frameLayout.setBackgroundColor(Color.YELLOW);
+//                    fragmentTransaction.hide(fragment);
+                    if (fragment1!=null){
+                        fragmentTransaction.hide(fragment1);
+                    }
+                    if (fragment3!=null){
+                        fragmentTransaction.hide(fragment3);
+
+                    }
+                    if (fragment2!=null){
+                        fragmentTransaction.hide(fragment2);
+                    }
+                    fragment4 = Fragment4.newInstance("fragment4 text");
+                    frameLayout.setBackgroundColor(Color.WHITE);
                     fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.add(conteinerId, fragment, tag);
+                    fragmentTransaction.add(conteinerId, fragment4, tag);
                     fragmentTransaction.commit();
                 }
                 break;
@@ -153,11 +234,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void setTextToFragment3(String textToFragment3) {
 
-    String tag=Fragment3.TAG;
-        if(getSupportFragmentManager().findFragmentByTag(tag)!=null){
+        if(fragment3!=null){
 //            Log.d("testt", "njisn ");
 
-            ((Fragment3)getSupportFragmentManager().findFragmentByTag(tag)).setTextToFragment(textToFragment3);
+            ((Fragment3)fragment3).setTextToFragment(textToFragment3);
 
         }
         else{
